@@ -20,6 +20,8 @@ export class PurchaseController {
 
   @Get(':id')
   findOne(@Param('id') id: number) {
+    const data = this.purchaseService.findOne(id);
+    if (!data) return null;
     return {
       success: true,
       data: this.purchaseService.findOne(id) ?? null,
