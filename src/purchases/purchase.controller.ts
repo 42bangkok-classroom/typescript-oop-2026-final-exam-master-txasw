@@ -7,6 +7,10 @@ export class PurchaseController {
 
   @Get()
   getPurchases() {
-    return this.purchaseService.findAll();
+    return {
+      success: true,
+      data: this.purchaseService.findAll(),
+      message: 'Fetched purchases successfully',
+    };
   }
 }
