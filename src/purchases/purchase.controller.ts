@@ -23,7 +23,7 @@ export class PurchaseController {
     return {
       success: true,
       data: this.purchaseService.findOne(id),
-      message: 'Fetched purchases successfully',
+      message: 'Fetched purchase successfully',
     };
   }
 }
