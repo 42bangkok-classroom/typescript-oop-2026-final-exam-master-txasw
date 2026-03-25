@@ -7,6 +7,6 @@ export class PurchaseController {
 
   @Get()
   getPurchases() {
-    return this.purchaseService.getPurchase();
+    return this.purchaseService.findAll();
   }
 }
