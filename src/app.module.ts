@@ -3,9 +3,10 @@ import { APP_FILTER } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApiExceptionFilter } from './common/api-exception.filter';
+import { PurchaseModule } from './purchases/purchase.module';
 
 @Module({
-  imports: [],
+  imports: [PurchaseModule],
   controllers: [AppController],
   providers: [
     AppService,
