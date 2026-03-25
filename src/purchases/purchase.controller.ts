@@ -22,7 +22,7 @@ export class PurchaseController {
   findOne(@Param('id') id: number) {
     return {
       success: true,
-      data: this.purchaseService.findOne(id) || null,
+      data: this.purchaseService.findOne(id) ?? null,
       message: 'Fetched purchase successfully',
     };
   }
