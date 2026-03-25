@@ -6,7 +6,6 @@ export class PurchaseController {
   constructor(private readonly purchaseService: PurchaseService) {}
 
   @Get()
-  @HttpCode(200)
   getPurchases() {
     return {
       success: true,
