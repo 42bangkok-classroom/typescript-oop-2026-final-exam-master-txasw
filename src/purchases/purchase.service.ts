@@ -20,6 +20,7 @@ export class PurchaseService {
     const rawdata = fs.readFileSync('data/purchases.json', 'utf-8');
     let data = JSON.parse(rawdata) as Purchase[];
     data = data.filter((purchase) => purchase.id == id);
+    if (!data) return null;
     return data[0];
   }
 }
