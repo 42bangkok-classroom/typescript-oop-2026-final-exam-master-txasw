@@ -24,7 +24,7 @@ export class PurchaseController {
     return {
       success: data ? true : false,
       data,
-      message: data ? 'Fetched purchase successfully' : id,
+      message: data ? 'Fetched purchase successfully' : 'not found ' + id,
     };
   }
 }
