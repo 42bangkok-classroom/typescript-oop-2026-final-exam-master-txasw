@@ -1,12 +1,25 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Query } from '@nestjs/common';
 import { Purchase } from './purchase.interface';
 import * as fs from 'fs';
 
 @Injectable()
 export class PurchaseService {
-  findAll(): Purchase[] {
+  findAll(
+    @Query('customerName') customerName?: string,
+    // @Query('startDate') startDate?: string,
+    // @Query('endDate') endDate?: string,
+  ): Purchase[] {
     const rawdata = fs.readFileSync('data/purchases.json', 'utf-8');
-    const data = JSON.parse(rawdata) as Purchase[];
+    let data = JSON.parse(rawdata) as Purchase[];
+    if (customerName)
+      data = data.filter((purchase) => purchase.customerName == customerName);
+    return data;
+  }
+
+  findOne(id: number) {
+    const rawdata = fs.readFileSync('data/purchases.json', 'utf-8');
+    let data = JSON.parse(rawdata) as Purchase[];
+    data = data.filter((purchase) => purchase.id == id);
     return data;
   }
 }

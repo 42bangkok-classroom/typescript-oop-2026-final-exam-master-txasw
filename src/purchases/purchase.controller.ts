@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { PurchaseService } from './purchase.service';
 
 @Controller('purchases')
@@ -10,6 +10,15 @@ export class PurchaseController {
     return {
       success: true,
       data: this.purchaseService.findAll(),
+      message: 'Fetched purchases successfully',
+    };
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: number) {
+    return {
+      success: true,
+      data: this.purchaseService.findOne(id),
       message: 'Fetched purchases successfully',
     };
   }
