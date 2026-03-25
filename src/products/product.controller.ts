@@ -7,6 +7,10 @@ export class ProductController {
 
   @Get()
   getProducts() {
-    return this.productService.findAll();
+    return {
+      success: true,
+      data: this.productService.findAll(),
+      message: 'Fetched products successfully',
+    };
   }
 }
